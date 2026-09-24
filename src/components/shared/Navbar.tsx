@@ -4,7 +4,7 @@ import logo from '@/assets/logo.png'
 
 const Navbar = () => {
     return (
-        <section className='bg-black text-white flex justify-between p-10'>
+        <section className='flex justify-between p-10 border-b border-gray-800'>
             <div className='flex justify-between w-5 h-5 gap-2'>
                 <Image src={logo} alt='logo' width={100} height={100} className=''/>
                 <h2 className='font-bold'>FITLOG</h2>
