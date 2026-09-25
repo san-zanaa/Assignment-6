@@ -13,7 +13,7 @@ interface CardProps {
 const Cards = ({ workout }: CardProps) => {
     return (
         <Link href={`/Exercises/${workout.id}`}>
-        <section className='bg-[#15171D] overflow-hidden border border-gray-800 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer'>
+        <section className='bg-[#15171D] overflow-hidden border border-gray-800 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:border-[#C2F800] cursor-pointer'>
             <div className='w-full h-52 overflow-hidden'>
                 <Image src={workout.image} alt='' height={250} width={400} className="w-full h-full md:h-52 object-cover" />
             </div>

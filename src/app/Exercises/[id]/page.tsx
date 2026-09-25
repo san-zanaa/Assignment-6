@@ -1,8 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import { CalendarPlus2, Bookmark } from 'lucide-react'
 import { getData } from '@/Data/Exercises'
 import { Exercise } from '@/types/cards.types';
+import PlansButton from '@/components/shared/PlansButton';
+import SavedButton from '@/components/shared/SavedButton';
 
 const page = async ({ params }: {
     params: Promise<{ id: string }>
@@ -17,7 +18,7 @@ const page = async ({ params }: {
         return <div>Workout not found</div>;
     }
     return (
-        <section className='flex flex-col lg:flex-row justify-between p-10 gap-8'>
+        <section className='flex flex-col lg:flex-row justify-between p-12 gap-10'>
             <div className='w-full md:w-1/2 rounded-2xl overflow-hidden'>
                 <Image src={workoutDetails.image} alt='' width={500} height={500} className='w-full h-full object-cover rounded-2xl' />
             </div>
@@ -35,34 +36,34 @@ const page = async ({ params }: {
 
                 <div className='bg-[#151922] mb-6 rounded-2xl overflow-hidden'>
                     <table className='w-full border border-gray-800 lg text-[#9CA3AF]'>
-                        <tbody className="divide-y divide-gray-800">
+                        <tbody className="divide-y divide-gray-800 font-semibold">
                             <tr>
-                                <td className="py-3 px-4 uppercase">Equipment</td>
-                                <td>{workoutDetails.equipment}</td>
+                                <td className="py-4 px-5 uppercase">Equipment</td>
+                                <td className="py-4 px-5 text-right">{workoutDetails.equipment}</td>
                             </tr>
                             <tr>
-                                <td className="py-3 px-4 uppercase">Difficulty</td>
-                                <td>{workoutDetails.difficulty}</td>
+                                <td className="py-4 px-5 uppercase">Difficulty</td>
+                                <td className="py-4 px-5 text-right">{workoutDetails.difficulty}</td>
                             </tr>
                             <tr>
-                                <td className="py-3 px-4 uppercase">Sets</td>
-                                <td>{workoutDetails.sets}</td>
+                                <td className="py-4 px-5 uppercase">Sets</td>
+                                <td className="py-4 px-5 text-right">{workoutDetails.sets}</td>
                             </tr>
                             <tr>
-                                <td className="py-3 px-4 uppercase">Reps</td>
-                                <td>{workoutDetails.reps}</td>
+                                <td className="py-4 px-5 uppercase">Reps</td>
+                                <td className="py-4 px-5 text-right">{workoutDetails.reps}</td>
                             </tr>
                             <tr>
-                                <td className="py-3 px-4 uppercase">Duration</td>
-                                <td>{workoutDetails.duration}</td>
+                                <td className="py-4 px-5 uppercase">Duration</td>
+                                <td className="py-4 px-5 text-right">{workoutDetails.duration} min</td>
                             </tr>
                             <tr>
-                                <td className="py-3 px-4 uppercase">Calories</td>
-                                <td>{workoutDetails.caloriesBurned}</td>
+                                <td className="py-4 px-5 uppercase">Calories</td>
+                                <td className="py-4 px-5 text-right">{workoutDetails.caloriesBurned} kcal</td>
                             </tr>
                             <tr>
-                                <td className="py-3 px-4 uppercase">Rating</td>
-                                <td>{workoutDetails.rating}</td>
+                                <td className="py-4 px-5 uppercase">Rating</td>
+                                <td className="py-4 px-5 text-right">{workoutDetails.rating}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -79,8 +80,8 @@ const page = async ({ params }: {
 
                 </div>
                 <div className='flex gap-5 mt-7'>
-                    <button className="inline-flex w-fit gap-1 items-center bg-[#C2F800] text-black px-5 py-3 font-bold rounded-xl transition-all duration-300 hover:bg-[#c4ec31] cursor-pointer"><CalendarPlus2 />Add today's plan</button>
-                    <button className="inline-flex w-fit gap-1 items-center text-[#E5E7EB] px-5 py-3 font-bold rounded-xl transition-all duration-300 border border-gray-800 cursor-pointer"><Bookmark />Save for later</button>
+                    <PlansButton workout={workouts}/>
+                    <SavedButton workout={workouts} />
                 </div>
             </div>
         </section>
