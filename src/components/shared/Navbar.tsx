@@ -8,8 +8,16 @@ import { useContext } from "react";
 import { WorkoutContext } from '@/context/WorkoutContext';
 
 const Navbar = () => {
-    const { todayPlans, savedWorkouts } = useContext(WorkoutContext);
+    const context = useContext(WorkoutContext);
     const pathname = usePathname()
+    if (!context) {
+        return null;
+    }
+    const {
+        todayPlans,
+        savedWorkouts
+    } = context;
+
     return (
         <section className='flex justify-between items-center p-10 border-b border-gray-800 shrink-0'>
             <div className='flex justify-between gap-2'>

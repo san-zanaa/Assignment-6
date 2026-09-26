@@ -14,8 +14,8 @@ createContext<WorkoutContextType | null>(null);
 
 const WorkoutProvider = ({ children } : {children : ReactNode }) => {
 
-    const [todayPlans, setTodayPlans] = useState([])
-    const [savedWorkouts, setSavedWorkouts] = useState([])
+    const [todayPlans, setTodayPlans] = useState<Exercise[]>([]);
+    const [savedWorkouts, setSavedWorkouts] = useState<Exercise[]>([]);
 
     const sharedData = {
         todayPlans,
