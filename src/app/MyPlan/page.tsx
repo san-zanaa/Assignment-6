@@ -5,6 +5,7 @@ import { WorkoutContext } from "@/context/WorkoutContext";
 import Link from "next/link";
 import MyPlanCard from "@/components/shared/MyPlanCard";
 import { Exercise } from "@/types/cards.types";
+import { toast } from "react-toastify";
 
 const Page = () => {
     const {
@@ -24,6 +25,7 @@ const Page = () => {
                 ? prev.filter((item) => item !== id)
                 : [...prev, id]
         );
+            toast.dismiss("Workout marked as done!");
     };
     const removeWorkout = (id: number) => {
         if (activeTab === "today") {
@@ -34,6 +36,7 @@ const Page = () => {
             setSavedWorkouts(
                 savedWorkouts.filter(
                     (workout: Exercise) => workout.id !== id));
+            toast.dismiss("Workout removed from saved!");
         }
     };
 
@@ -93,7 +96,7 @@ const Page = () => {
                         type="radio"
                         name="my_tabs_1"
                         className={`tab text-[#8A92A0] ${activeTab === "today" ? "bg-[#2B303D] text-white font-semibold" : ""}`}
-                        aria-label="Today's plan"
+                        aria-label="Today's Plan"
                         checked={activeTab === "today"}
                         onChange={() => setActiveTab("today")} />
                     <input
