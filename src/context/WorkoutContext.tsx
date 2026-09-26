@@ -1,8 +1,16 @@
 "use client";
 import { createContext, ReactNode, useState } from "react";
+import { Exercise } from "@/types/cards.types";
 
+type WorkoutContextType = {
+    todayPlans: Exercise[];
+    setTodayPlans: React.Dispatch<React.SetStateAction<Exercise[]>>;
 
-export const WorkoutContext = createContext({});
+    savedWorkouts: Exercise[];
+    setSavedWorkouts: React.Dispatch<React.SetStateAction<Exercise[]>>;
+};
+export const WorkoutContext =
+createContext<WorkoutContextType | null>(null);
 
 const WorkoutProvider = ({ children } : {children : ReactNode }) => {
 

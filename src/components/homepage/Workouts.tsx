@@ -9,7 +9,6 @@ const getData = async () => {
 
 const Workouts = async () => {
     const workoutData = await getData();
-    console.log(workoutData, "workoutData");
     return (
         <section id="workouts" 
                  className="w-[95%] mx-auto mt-10">
