@@ -4,9 +4,11 @@ import Image from 'next/image'
 import logo from '@/assets/logo.png'
 import Link from 'next/link';
 import { usePathname } from "next/navigation"
-
+import { useContext } from "react";
+import { WorkoutContext } from '@/context/WorkoutContext';
 
 const Navbar = () => {
+    const { todayPlans, savedWorkouts } = useContext(WorkoutContext);
     const pathname = usePathname()
     return (
         <section className='flex justify-between items-center p-10 border-b border-gray-800 shrink-0'>
@@ -31,9 +33,13 @@ const Navbar = () => {
                     </li>
                 </ul>
             </div>
-            <div className='flex gap-4'>
-                <button className='flex items-center gap-1.5 cursor-pointer'>Plan <span className='bg-[#C2F800] text-black px-1.5 flex items-center justify-center rounded-full'>0</span></button>
-                <button className='flex items-center gap-1.5 cursor-pointer'>Saved <span className='border border-gray-50 px-1.5 flex items-center justify-center rounded-full'>0</span></button>
+            <div className='flex gap-4 font-semibold'>
+                <button className='flex items-center gap-1.5 cursor-pointer'>Plan <span className='bg-[#C2F800] text-black px-2 flex items-center font-bold justify-center rounded-full'>
+                    {todayPlans.length}</span>
+                </button>
+                <button className='flex items-center text-[#9CA3AF] gap-1.5 cursor-pointer'>Saved <span className='border border-[#D1D5DB] font-bold px-2 flex items-center justify-center rounded-full'>
+                    {savedWorkouts.length}</span>
+                </button>
             </div>
         </section>
     );
