@@ -1,8 +1,13 @@
+"use client"
 import React from 'react';
 import Image from 'next/image'
 import logo from '@/assets/logo.png'
+import Link from 'next/link';
+import { usePathname } from "next/navigation"
+
 
 const Navbar = () => {
+    const pathname = usePathname()
     return (
         <section className='flex justify-between items-center p-10 border-b border-gray-800 shrink-0'>
             <div className='flex justify-between gap-2'>
@@ -10,9 +15,20 @@ const Navbar = () => {
                 <h2 className='font-bold'>FITLOG</h2>
             </div>
             <div>
-                <ul className='flex justify-between gap-6'>
-                    <li>Workouts</li>
-                    <li>My Plan</li>
+                <ul className='flex justify-between font-semibold'>
+                    <li>
+                        <Link href = "/"
+                        className={pathname === "/" ? "text-[#C2F800] bg-[#C2F800]/20 rounded-full px-3 py-2" : "px-3 py-2"}>
+                          Workouts
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link href = "/MyPlan"
+                          className={pathname === "/MyPlan" ? "text-[#C2F800] bg-[#C2F800]/20 rounded-full px-3 py-2" : "px-3 py-2"}>
+                           My Plan
+                         </Link>
+                    </li>
                 </ul>
             </div>
             <div className='flex gap-4'>
