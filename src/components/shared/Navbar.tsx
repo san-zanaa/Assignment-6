@@ -18,14 +18,14 @@ const Navbar = () => {
                 <ul className='flex justify-between font-semibold'>
                     <li>
                         <Link href = "/"
-                        className={pathname === "/" ? "text-[#C2F800] bg-[#C2F800]/20 rounded-full px-3 py-2" : "px-3 py-2"}>
+                        className={pathname === "/" ? "text-[#C2F800] bg-[#C2F800]/10 rounded-full px-4 py-2" : "px-3 py-2"}>
                           Workouts
                         </Link>
                     </li>
 
                     <li>
                         <Link href = "/MyPlan"
-                          className={pathname === "/MyPlan" ? "text-[#C2F800] bg-[#C2F800]/20 rounded-full px-3 py-2" : "px-3 py-2"}>
+                          className={pathname === "/MyPlan" ? "text-[#C2F800] bg-[#C2F800]/10 rounded-full px-4 py-2" : "px-3 py-2"}>
                            My Plan
                          </Link>
                     </li>

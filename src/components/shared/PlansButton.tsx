@@ -8,6 +8,14 @@ import { toast } from 'react-toastify';
 const PlansButton = ({ workout } : { workout : Exercise}) => {
     const { todayPlans, setTodayPlans } = useContext(WorkoutContext);
     const addToPlan = () => {
+console.log("ADDING WORKOUT:", workout);
+        const alreadyAdded = todayPlans.some(
+            (item:Exercise) => item.id === workout.id
+        )
+        if (alreadyAdded) {
+            toast.info("Already added to today's plan")
+            return;
+        }
         setTodayPlans([...todayPlans, workout]);
         toast.success("Added to today's plan")
     }

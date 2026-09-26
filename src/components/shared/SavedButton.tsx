@@ -8,6 +8,13 @@ import { toast } from 'react-toastify';
 const SavedButton = ({ workout } : { workout : Exercise}) => {
     const { savedWorkouts, setSavedWorkouts } = useContext(WorkoutContext);
     const savedLater = () => {
+        const alreadySaved = savedWorkouts.some(
+            (item:Exercise) => item.id === workout.id
+        )
+        if(alreadySaved) {
+            toast.info("Already saved")
+            return;
+        }
         setSavedWorkouts([...savedWorkouts, workout]);
         toast.success("Saved for later")
     }

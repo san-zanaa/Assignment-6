@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import { getData } from '@/Data/Exercises'
-import { Exercise } from '@/types/cards.types';
-import PlansButton from '@/components/shared/PlansButton';
-import SavedButton from '@/components/shared/SavedButton';
+import { Exercise } from '@/types/cards.types'
+import PlansButton from '@/components/shared/PlansButton'
+import SavedButton from '@/components/shared/SavedButton'
 
 const page = async ({ params }: {
     params: Promise<{ id: string }>
@@ -80,8 +80,8 @@ const page = async ({ params }: {
 
                 </div>
                 <div className='flex gap-5 mt-7'>
-                    <PlansButton workout={workouts}/>
-                    <SavedButton workout={workouts} />
+                    <PlansButton workout={workoutDetails}/>
+                    <SavedButton workout={workoutDetails} />
                 </div>
             </div>
         </section>
